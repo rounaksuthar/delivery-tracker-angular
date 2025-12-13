@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class ApiServicService {
 
-  baseURL:string = "https://deliverytracker-az2r.onrender.com";
+  // baseURL:string = "https://deliverytracker-az2r.onrender.com";
 
+  baseURL:string = "https://deliveryapp-474910.el.r.appspot.com";
     // baseURL:string = "http://localhost:8080";
 
 
@@ -44,11 +45,4 @@ export class ApiServicService {
     return this.http.post(this.baseURL + apiUrl,order, {responseType: 'text'});
   }
 
-  generateSalesReport(formData:any): Observable<any>{
-    return this.http.post(this.baseURL + `/sales/generateSalesReport`, formData,{responseType:'text'});
-  }
-  
-  generateOrderReport(formData:any): Observable<any>{
-    return this.http.post(this.baseURL + `/order/generateOrderReport`, formData,{responseType:'text'});
-  }
 }
