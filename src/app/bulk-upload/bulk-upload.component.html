@@ -22,6 +22,9 @@
     
      <div *ngIf="f['uploadfile'].touched && f['uploadfile'].errors" class="invalid-feedback-custom">
         <div *ngIf="f['uploadfile'].errors['required']">File is required!</div>
-      </div>
+    </div>
   </form>
+  <br>
+    <button class="btn btn-primary me-3 mb-3" (click)="generateSalesReport()">Get Sales data on Email</button>
+    <button class="btn btn-primary mb-3" (click)="generateOrderReport()">Get Order data on Email</button>
 </div>
