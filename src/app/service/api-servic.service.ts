@@ -45,4 +45,12 @@ export class ApiServicService {
     return this.http.post(this.baseURL + apiUrl,order, {responseType: 'text'});
   }
 
+  generateSalesReport(formData:any): Observable<any>{
+    return this.http.post(this.baseURL + `/sales/generateSalesReport`, formData,{responseType:'text'});
+  }
+  
+  generateOrderReport(formData:any): Observable<any>{
+    return this.http.post(this.baseURL + `/order/generateOrderReport`, formData,{responseType:'text'});
+  }
+
 }
