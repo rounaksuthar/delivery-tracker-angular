@@ -18,7 +18,7 @@ export class BulkUploadComponent {
     pageHeading:any;
 
     bulkupload: FormGroup;
-    selectedFile: File | null = null;
+        selectedFile: File | null = null;
 
     orderUpload:boolean = true;
     salesUpload:boolean = false;
@@ -104,4 +104,31 @@ export class BulkUploadComponent {
           }
           
         }
+
+      generateSalesReport() {
+          const body = {userId: this.localStorage.getData("userId")};
+          this.apiService.generateSalesReport(body).subscribe({
+            next: (res) => {
+                alert(res);
+                this.spinner.requestEnded();
+              }, error: err => {
+                console.warn(err);
+                alert("Internal Server Error " + err);
+                this.spinner.requestEnded();
+              }
+          });
+      }
+      generateOrderReport() {
+          const body = {userId: this.localStorage.getData("userId")};
+          this.apiService.generateOrderReport(body).subscribe({
+            next: (res) => {
+                alert(res);
+                this.spinner.requestEnded();
+              }, error: err => {
+                console.warn(err);
+                alert("Internal Server Error " + err);
+                this.spinner.requestEnded();
+              }
+          });
+      }
 }
